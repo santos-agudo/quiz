@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quiz - Question</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Esta es la pregunta</h1>
+    <br>
+    <hr/>
+    <br><br>
+    <fieldset>
+    	<legend>Pregunta:</legend>
+    	<ol>
+    		<li>
+                <form method="get" action="/quizes/answer">
+        			Descripción de la pregunta:<br>
+        			<%= pregunta %>
+                    <input type="text" name="respuesta" value="Responda aquí">
+                    <input type="submit" value="Enviar">
+                </form>
+    		</li>
+    	</ol>
+    	<div><a href="/">Volver</a></div>
+    </fieldset>
+  </body>
+</html>
