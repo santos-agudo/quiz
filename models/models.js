@@ -1,17 +1,31 @@
+var pg = require('pg');
 var path = require('path');
 
 // Cargar Modelo ORM
 var Sequelize = require('sequelize');
+var sequelize = null;
 
-// usar BD MySQL
-var sequelize = new  Sequelize(
+// usar BD MySQL o Postgres
+if (process.env.DATABASE_URL) {
+	sequelize = new  Sequelize(
+		'ddfkia0uhijkja', 'agxxxngbxflopp', 'G3VNwacYDeVnn0LoZERgw43WtI',
+		{
+			host: 'ec2-54-83-17-8.compute-1.amazonaws.com',
+			dialect: 'postgres',
+			protocol: 'postgres',
+			port: '5432',
+			omitNull: true
+		}
+	);
+} else {
+	sequelize = new  Sequelize(
 		'QuizDB', 'root', 'root',
 		{
 			host: 'localhost',
 			dialect: 'mysql'
 		}
 	);
-
+}
 // Importar la definición de la tabla Quiz en quiz.js
 var Quiz = sequelize.import(path.join(__dirname, 'quiz'));
 
