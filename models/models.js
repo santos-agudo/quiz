@@ -6,7 +6,7 @@ var Sequelize = require('sequelize');
 var sequelize = null;
 
 // usar BD MySQL o Postgres
-if (process.env.DATABASE_URL) {
+if (process.env.DATABASE_URL) { 
 	sequelize = new  Sequelize(
 		'ddfkia0uhijkja', 'agxxxngbxflopp', 'G3VNwacYDeVnn0LoZERgw43WtI',
 		{
@@ -42,8 +42,18 @@ sequelize.sync().then(
 						{
 							pregunta: 'Capital de Italia',
 							respuesta:'Roma'
-						}
-					).then(
+						});
+					Quiz.create(
+						{
+							pregunta: 'Capital de España',
+							respuesta:'Madrid'
+						});
+					Quiz.create(
+						{
+							pregunta: 'Capital de Portugal',
+							respuesta:'Lisboa'
+						})					
+					.then(
 						function() {
 							console.log('La BD se inicializó correctamente');
 						}
