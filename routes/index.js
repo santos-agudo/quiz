@@ -39,4 +39,8 @@ router.get('/quizes/:quizId(\\d+)/edit', quizController.edit);
 /* Salvar pregunta modificada */
 router.put('/quizes/:quizId(\\d+)', quizController.update);
 
+/* Borrar una pregunta */
+router.delete('/quizes/:quizId(\\d+)', quizController.destroy);
+
+
 module.exports = router;
