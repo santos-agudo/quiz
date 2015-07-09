@@ -27,4 +27,10 @@ router.get(	'/author',
 			}
 );
 
+/* Nuevas preguntas */
+router.get('/quizes/new', quizController.new);
+
+/* Salvar la pregunta nueva*/
+router.post('/quizes/create', quizController.create);
+
 module.exports = router;
