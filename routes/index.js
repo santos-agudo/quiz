@@ -33,4 +33,10 @@ router.get('/quizes/new', quizController.new);
 /* Salvar la pregunta nueva*/
 router.post('/quizes/create', quizController.create);
 
+/* Modificar preguntas */
+router.get('/quizes/:quizId(\\d+)/edit', quizController.edit);
+
+/* Salvar pregunta modificada */
+router.put('/quizes/:quizId(\\d+)', quizController.update);
+
 module.exports = router;
