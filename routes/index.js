@@ -23,7 +23,7 @@ router.get('/quizes/:quizId(\\d+)/answer', quizController.answer);
 /* Author. */
 router.get(	'/author', 
 			function(req, res, next) {
-				res.render('authors');
+				res.render('authors', {errors:[]});
 			}
 );
 

@@ -1,0 +1,31 @@
+<select name="quiz[tema]">
+	<% if (quiz.tema==='Humanidades') { %>
+		<option Selected %> value="Humanidades">Humanidades</option>
+	<% } else { %>
+		<option %> value="Humanidades">Humanidades</option>
+	<% } %>
+
+	<% if (quiz.tema==='Ocio') { %>
+		<option Selected %> value="Ocio">Ocio</option>
+	<% } else { %>
+		<option %> value="Ocio">Ocio</option>
+	<% } %>
+	<% if (quiz.tema==='Ciencia') { %>
+		<option Selected %> value="Ciencia">Ciencia</option>
+	<% } else { %>
+		<option %> value="Ciencia">Ciencia</option>
+	<% } %>
+
+	<% if (quiz.tema==='Tecnología') { %>
+		<option Selected %> value="Tecnología">Tecnología</option>
+	<% } else { %>
+		<option %> value="Tecnología">Tecnología</option>
+	<% } %>
+
+	<% if (quiz.tema==='Otros') { %>
+		<option Selected %> value="Otros">Otros</option>
+	<% } else { %>
+		<option %> value="Otros">Otros</option>
+	<% } %>
+
+</select>
