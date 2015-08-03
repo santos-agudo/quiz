@@ -1,3 +1,12 @@
+// MW de autorización de accesos HTTP restringuidos
+exports.loginRequired = function(req, res) {
+	if (req.session.user) {
+		next();
+	} else {
+		res.redirect('/login');
+	}
+};
+
 // Get /login  -->Formulario de login
 exports.new = function(req, res) {
 	var errors = req.session.errors || {};
@@ -29,10 +38,10 @@ exports.create = function(req, res) {
 			res.redirect(req.session.redir.toString()); //redirección a path anterior a login.
 		}
 	);
-}
+};
 
 //DELETE /logout  -->Destruir sesión
 exports.destroy = function(req, res) {
 	delete req.session.user;
 	res.redirect(req.session.redir.toString()); //redirección a path anterior a login.
-}
+};
