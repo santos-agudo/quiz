@@ -28,6 +28,8 @@ app.use(session());
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+
 //Helpers dinámicos:
 app.use(function(req, res, next) {
           // Guardar path en session.redir para después
@@ -41,6 +43,23 @@ app.use(function(req, res, next) {
           next();
         }
 );
+
+app.use(function(req, res, next) {
+  var sesion = req.session || null;
+
+  if (sesion === "undefined" ) return next();
+  if (!sesion.user || !sesion.activa) return next();
+
+  var horaActual = new Date();
+  console.log("Hora Actual:" + horaActual.getTime());
+  console.log("Hora Login:" + sesion.loginTime);
+  if ( (horaActual.getTime() - sesion.loginTime ) > 60000) {
+    sesion.activa = false;
+    res.redirect('/logout');
+    //return;
+  }
+  next();
+});
 
 app.use('/', routes);
 
